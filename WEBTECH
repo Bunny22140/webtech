@@ -1,0 +1,350 @@
+1.	Write a PHP script to find even and odd numbers between 1 to 50
+
+<?php
+// Loop through numbers 1 to 50
+echo "Even numbers between 1 and 50: ";
+for ($i = 1; $i <= 50; $i++) {
+    if ($i % 2 == 0) {
+        echo $i . " ";
+    }
+}
+echo "\nOdd numbers between 1 and 50: ";
+for ($i = 1; $i <= 50; $i++) {
+    if ($i % 2 != 0) {
+        echo $i . " ";
+    }
+}
+?>
+
+
+
+
+
+2.	Write a program to find factorial of given number using function.
+ <?php
+// Function to calculate factorial
+function factorial($num) {
+    $result = 1;
+    for ($i = 1; $i <= $num; $i++) {
+        $result *= $i; // Multiply result by the current number
+    }
+    return $result;
+}
+// Input: Number to find factorial
+$number = 5; // You can change this to any number
+// Output: Display the factorial
+echo "The factorial of $number is: " . factorial($number);
+?>
+
+
+
+
+
+3.	Write a program to create indexed array and perform push and pop operation on it.
+<?php
+// Create an indexed array
+$fruits = ["Apple", "Banana", "Cherry"];
+// Display the original array
+echo "Original Array: ";
+print_r($fruits);
+// Push operation: Add elements to the end of the array
+array_push($fruits, "Date", "Elderberry");
+echo "\nAfter Push Operation: ";
+print_r($fruits);
+// Pop operation: Remove the last element from the array
+$removedElement = array_pop($fruits);
+echo "\nAfter Pop Operation: ";
+print_r($fruits);
+// Display the popped element
+echo "\nPopped Element: $removedElement\n";
+?>
+
+
+
+4.	Write a program to create associative array and add and remove elements from this array.
+<?php
+$data = array("name"=>'tanmay',"age"=>20,"marks"=>50);
+$data += array("salary"=>50000,"address"=>"pune");
+$data1 = array_diff($data, ['tanmay',20]);
+foreach ($data1 as $x=>$y) {
+    echo "$x : $y <br>";
+}
+?>
+
+
+
+
+WAP for for single inheritance.
+<?php
+class Data1{
+    public $x;
+    public $y;
+    public function setdata($x,$y)
+    {
+        $this->x=$x;
+        $this->y=$y;
+    } 
+}
+class Op extends Data1{   
+    public function add()
+    {
+        echo "Addition is ".$this->x+$this->y;
+    }
+    public function sub()
+    {
+        echo "Addition is ".$this->x-$this->y;
+    }
+}
+$op1=new Op();
+$op1->setdata(30,40);
+$op1->add();
+$op1->sub();
+?>
+
+
+
+
+6. Write a program for database connectivity using mysql.
+<?php
+echo"Welcome to php<br>";
+//connecting to database
+$servername="localhost";
+$username="root";
+$password="";
+//create connection
+$conn=new mysqli($servername,$username,$password);
+if($conn->connect_error)
+{
+echo "sorry connect to fail".mysqli_connect_error();
+}
+else{
+    echo"connection established successfully";
+}
+//  Creating a database named data 
+$sql = "CREATE DATABASE db3"; 
+ if ($conn->query($sql) === TRUE) { 
+    echo "Database with name DB1"; 
+ } else { 
+    echo "Error: " . $conn->error;  } 
+//  Closing connection 
+ $conn->close(); 
+?>
+
+
+
+
+
+7. WAP to create table using mysql.
+<?php
+echo"Welcome to php<br>";
+//connecting to database
+$servername="localhost";
+$username="root";
+$password="";
+$db="db2";
+//create connection
+$conn=new mysqli($servername,$username,$password,$db);
+if($conn->connect_error)
+{
+echo "sorry connect to fail".$conn->connect_error;
+}
+else{
+    echo"connection established successfully";
+}
+// Creating a database named geekdata 
+$sql = "CREATE Table student(id int(2) primary key,
+name varchar(20) not null)"; 
+if ($conn->query($sql) === TRUE) { 
+    echo "Table created successfully"; 
+} else { 
+    echo "Error: " . $conn->error; 
+} 
+// Closing connection 
+$conn->close(); 
+?>
+
+
+
+
+
+9. WAP to create class and constructor or destructor method and object.
+<?php
+  class Data
+  {
+  public $name; 
+  function __construct($name)
+  {
+     $this->name=$name;
+     echo $name."<br>";
+  }
+  __destruct() function that is automatically called at the end of the script:
+  function __destruct()
+  {
+    echo"end";
+  }
+  }
+  $obj1=new Data("steven");
+  $obj2=new Data("j");
+?>
+
+
+
+
+
+
+
+10. WAP to create hierarchical inheritance using PHP
+<?php
+class Data1{
+    public $x;
+    public $y;
+    public function setdata($x,$y)
+    {
+        $this->x=$x;
+        $this->y=$y;
+    }
+}
+class Op extends Data1{   
+    public function add()
+    {
+        echo "Addition is ".$this->x+$this->y;
+    }
+}
+class Op1 extends Data1{
+    public function sub()
+    {
+        echo "subtraction is ".$this->x-$this->y;
+    }
+}
+$obj1=new Op();
+$obj1->setdata(30,40);
+$obj2=new Op1();
+$obj2->setdata(70,40);
+?>
+
+
+
+
+
+
+11. WAP to create 2dimensional array.
+<?php
+// PHP program to create 
+// multidimensional array
+// Creating 2dimensional
+// array
+$myarray = array(
+    // Default key for each will
+    // start from 0
+    array("Ankit", "Ram", "Shyam"),
+   array("Unnao", "Trichy", "Kanpur")
+);    
+// Display the array information
+print_r($myarray);
+?>
+
+
+
+
+
+
+
+12. WAP to sort array in ascending order.
+<!DOCTYPE html> 
+<html> 
+<body> 
+<?php 
+$numbers = array(40, 61, 2, 22, 13); 
+sort($numbers); 
+$arrlength = count($numbers); 
+for($x = 0; $x < $arrlength; $x++) { 
+	echo $numbers[$x]; 
+	echo "<br>"; 
+} 
+?> 
+
+
+</body> 
+</html>
+Output:
+2
+13
+22
+40
+61
+
+
+
+
+
+
+13. WAP to find length of string and to reverse string and repeat string using string built-in functions.
+
+<?php
+$str="hello";
+//string length
+$length=strlen($str);
+echo"length of string is $length<br>";
+echo "<h1>reverse of this string is </h1>", strrev($str);
+?>
+14.Wap to find greater numbers between three numbers using php.
+<?php
+// Declare three numbers
+$num1 = 45;
+$num2 = 78;
+$num3 = 23;
+// Logic to find the greatest number
+if ($num1 > $num2 && $num1 > $num3) {
+    echo "The greatest number is: $num1";
+} elseif ($num2 > $num1 && $num2 > $num3) {
+    echo "The greatest number is: $num2";
+} else {
+    echo "The greatest number is: $num3";
+}
+?>
+
+
+
+
+
+
+15. WAP to read and write into file using file functions.
+<?php  
+$fp = fopen('d1.txt', 'w');//open file in write mode  
+fwrite($fp, 'updated content');  
+echo fread($fp,filesize('d1.txt'));
+echo fgetc($fp);
+fclose($fp);  
+echo file_get_contents("data1.txt");
+echo "File written successfully"; 
+?>
+
+
+
+
+
+
+
+
+16. WAP for post method in php.
+Form.php
+<html>
+<body>
+
+<form action="get.php" method="POST">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
+
+</body>
+</html>
+Action.php
+<html>
+<body>
+
+Welcome <?php echo $_POST["name"]; ?><br>
+Your email address is: <?php echo $_POST["email"]; ?>
+
+</body>
+</html>
